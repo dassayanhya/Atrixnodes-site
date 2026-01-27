@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atrix Nodes | Reliable Infrastructure & Hosting</title>
+    <meta name="description" content="High-performance VPS hosting and infrastructure services. Transparent pricing, NVMe storage, and KVM virtualization.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script src="tailwind-config.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-brand-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-8 h-8 bg-brand-400 rounded flex items-center justify-center mr-2">
+                        <i class="fa-solid fa-server text-brand-900"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white">Atrix<span class="text-brand-400">Nodes</span></span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#features" class="text-slate-300 hover:text-brand-400 transition-colors text-sm font-medium">Features</a>
+                    <div class="relative" id="nav-pricing">
+                        <button id="pricing-toggle" class="text-slate-300 hover:text-brand-400 transition-colors text-sm font-medium flex items-center">
+                            Pricing
+                            <i class="fa-solid fa-chevron-down ml-2 text-xs"></i>
+                        </button>
+                        <div id="pricing-menu" class="hidden absolute right-0 mt-2 w-56 bg-brand-900 border border-slate-800 rounded-lg shadow-xl">
+                            <a href="minecraft.html" class="block px-4 py-2 text-slate-300 hover:bg-slate-800 hover:text-white">Minecraft Hosting</a>
+                            <a href="discord.html" class="block px-4 py-2 text-slate-300 hover:bg-slate-800 hover:text-white">Discord Hosting</a>
+                            <a href="vps.html" class="block px-4 py-2 text-slate-300 hover:bg-slate-800 hover:text-white">VPS</a>
+                        </div>
+                    </div>
+                    <a href="#infrastructure" class="text-slate-300 hover:text-brand-400 transition-colors text-sm font-medium">Infrastructure</a>
+                    <a href="#about" class="text-slate-300 hover:text-brand-400 transition-colors text-sm font-medium">About</a>
+                    <a href="#contact" class="px-4 py-2 rounded-full border border-brand-400 text-brand-400 hover:bg-brand-400 hover:text-brand-900 transition-all text-sm font-medium">Contact Us</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-b border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Features</a>
+                <div class="block">
+                    <button id="mobile-pricing-toggle" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 flex justify-between items-center">
+                        Pricing
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="mobile-pricing-menu" class="hidden ml-3 mt-1 space-y-1">
+                        <a href="minecraft.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Minecraft Hosting</a>
+                        <a href="discord.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Discord Hosting</a>
+                        <a href="vps.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">VPS</a>
+                    </div>
+                </div>
+                <a href="#infrastructure" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Infrastructure</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">About</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-brand-400 hover:text-brand-300">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 glow-bg overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
+                Reliable Infrastructure & <br class="hidden md:block" />
+                <span class="highlight-text">High-Performance Hosting</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400">
+                Enterprise-grade VPS hosting built on transparent principles. 
+                NVMe storage, KVM virtualization, and dedicated resources tailored for stability.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <a href="pricing.html" class="px-8 py-3 rounded-lg bg-brand-500 text-white font-medium hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)]">
+                    View Pricing
+                </a>
+                <a href="#features" class="px-8 py-3 rounded-lg border border-slate-700 text-slate-300 font-medium hover:border-slate-500 hover:text-white transition-all">
+                    Explore Features
+                </a>
+            </div>
+        </div>
+        
+        <!-- Background decorative grid -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20 pointer-events-none">
+            <div style="background-image: linear-gradient(#1e293b 1px, transparent 1px), linear-gradient(90deg, #1e293b 1px, transparent 1px); background-size: 40px 40px;"></div>
+        </div>
+    </section>
+
+    <!-- Overview / Features Preview -->
+    <section id="features" class="py-20 bg-brand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white">Why Atrix Nodes?</h2>
+                <p class="mt-4 text-slate-400">No marketing fluff. Just solid hardware and connectivity.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="feature-card bg-slate-800/50 p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 border border-slate-700">
+                        <i class="fa-solid fa-microchip text-brand-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">High Performance</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Powered by modern Intel Xeon and AMD EPYC processors. We prioritize CPU performance to ensure your workloads run smoothly.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card bg-slate-800/50 p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 border border-slate-700">
+                        <i class="fa-solid fa-hard-drive text-brand-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">NVMe Storage</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        Enterprise-grade NVMe SSDs deliver significantly faster I/O compared to traditional SSDs. Perfect for databases and intensive apps.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card bg-slate-800/50 p-8 rounded-2xl">
+                    <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center mb-6 border border-slate-700">
+                        <i class="fa-solid fa-shield-halved text-brand-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Transparent & Secure</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        No hidden fees. No overselling. We provide root access with robust firewall configurations to keep your data safe.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-brand-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white">Transparent Pricing</h2>
+                <p class="mt-4 text-slate-400">Simple monthly costs. Upgrade anytime.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Starter -->
+                <div class="pricing-card bg-brand-900 rounded-2xl p-8 relative flex flex-col">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-medium text-slate-300">Discord Bot</h3>
+                        <div class="mt-2 flex items-baseline">
+                            <span class="text-4xl font-bold text-white">$</span>
+                            <span class="text-4xl font-bold text-white price-value" data-target="5">0</span>
+                            <span class="ml-1 text-slate-500">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 512 MB RAM</li>
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 0.5 vCPU Core</li>
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 2 GB NVMe Storage</li>
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 1 GB Bandwidth</li>
+                        <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Priority Support</li>
+                    </ul>
+                    <a href="https://billing.atrixnodes.site" target="_blank" rel="noopener" class="request-service w-full block text-center py-3 rounded-lg border border-slate-700 text-white font-medium hover:bg-slate-800 transition-colors">Request Service</a>
+                </div>
+
+                <!-- Pro (Featured) -->
+                <div class="pricing-card bg-slate-800 rounded-2xl p-8 relative flex flex-col border-brand-500 shadow-[0_0_30px_rgba(34,211,238,0.1)]">
+                    <div class="absolute top-0 right-0 bg-brand-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">Starter</div>
+                    <div class="mb-4">
+                        <h3 class="text-lg font-medium text-white">Minecraft Server</h3>
+                        <div class="mt-2 flex items-baseline">
+                            <span class="text-4xl font-bold text-white">$</span>
+                            <span class="text-4xl font-bold text-white price-value" data-target="15">0</span>
+                            <span class="ml-1 text-slate-500">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 4 GB RAM</li>
+                        <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 2 vCPU Cores</li>
+                        <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 100 GB NVMe Storage</li>
+                        <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 2 TB Bandwidth</li>
+                        <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Priority Support</li>
+                    </ul>
+                    <a href="https://billing.atrixnodes.site" target="_blank" rel="noopener" class="request-service w-full block text-center py-3 rounded-lg bg-brand-500 text-white font-medium hover:bg-brand-400 transition-colors shadow-lg">Request Service</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="pricing-card bg-brand-900 rounded-2xl p-8 relative flex flex-col">
+                    <div class="mb-4">
+                        <h3 class="text-lg font-medium text-slate-300">Virtual Private Server</h3>
+                        <div class="mt-2 flex items-baseline">
+                            <span class="text-4xl font-bold text-white">$</span>
+                            <span class="text-4xl font-bold text-white price-value" data-target="35">0</span>
+                            <span class="ml-1 text-slate-500">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-1">
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 8 GB RAM</li>
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 4 vCPU Cores</li>
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 200 GB NVMe Storage</li>
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> 4 TB Bandwidth</li>
+                        <li class="flex items-center text-slate-400 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Dedicated IP</li>
+                    </ul>
+                    <a href="https://billing.atrixnodes.site" target="_blank" rel="noopener" class="request-service w-full block text-center py-3 rounded-lg border border-slate-700 text-white font-medium hover:bg-slate-800 transition-colors">Request Service</a>
+                </div>
+
+            </div>
+            <p class="text-center mt-8 text-sm text-slate-500">Need custom infrastructure? <a href="#contact" class="text-brand-400 hover:underline">Contact us for custom nodes.</a></p>
+        </div>
+    </section>
+
+    <!-- Infrastructure Detail -->
+    <section id="infrastructure" class="py-20 bg-brand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-6">Engineered for Stability</h2>
+                    <p class="text-slate-400 mb-6 text-lg">
+                        We believe that hosting should be invisible. You shouldn't have to worry about your server going down or being oversold.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-brand-500 text-white">
+                                    <i class="fa-solid fa-network-wired"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg leading-6 font-medium text-white">Network Uptime</h4>
+                                <p class="mt-2 text-slate-400">Our network utilizes redundant uplinks to major transit providers to ensure low latency and high availability.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-brand-500 text-white">
+                                    <i class="fa-solid fa-box-open"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg leading-6 font-medium text-white">KVM Virtualization</h4>
+                                <p class="mt-2 text-slate-400">Full virtualization allows for better performance and isolation compared to container-based solutions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-brand-500 text-white">
+                                    <i class="fa-solid fa-terminal"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg leading-6 font-medium text-white">Full Root Access</h4>
+                                <p class="mt-2 text-slate-400">Install any OS you need. We support a wide range of Linux distributions and custom ISOs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700 shadow-2xl">
+                    <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-4">
+                        <span class="text-slate-400 font-mono text-sm">root@atrix:~#</span>
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                    </div>
+                    <div class="font-mono text-sm space-y-2 text-slate-300">
+                        <p><span class="text-green-400">$</span> neofetch</p>
+                        <p class="text-slate-500">-------------------</p>
+                        <p><span class="text-purple-400">ATRIX</span> <span class="text-white">Nodes</span> VPS</p>
+                        <p>-------------------</p>
+                        <p><span class="text-blue-400">Host:</span> <span class="text-slate-200">Intel Xeon E5-2680 v4</span></p>
+                        <p><span class="text-blue-400">Kernel:</span> <span class="text-slate-200">6.1.0-generic</span></p>
+                        <p><span class="text-blue-400">Shell:</span> <span class="text-slate-200">bash 5.2</span></p>
+                        <p><span class="text-blue-400">Resolution:</span> <span class="text-slate-200">1vCPU @ 3.2GHz</span></p>
+                        <p><span class="text-blue-400">Uptime:</span> <span class="text-slate-200">14 days, 2 hours</span></p>
+                        <p><span class="text-blue-400">Memory:</span> <span class="text-slate-200">4096MiB / 8192MiB</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-brand-950 border-t border-slate-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-white mb-6">About Atrix Nodes</h2>
+            <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                Atrix Nodes was founded on a simple premise: Infrastructure should be boring. 
+                It should just work. We set out to build a hosting environment where performance 
+                isn't a marketing gimmick, and pricing isn't hidden behind a maze of checkout pages.
+            </p>
+            <p class="text-slate-400 text-lg leading-relaxed">
+                Our mission is to provide transparent, reliable hosting for developers and businesses 
+                who value stability over flashy features. We focus on the raw hardware and connectivity 
+                that powers your applications.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-brand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto bg-brand-950 rounded-2xl shadow-xl overflow-hidden border border-slate-800 flex flex-col md:flex-row">
+                
+                <div class="p-10 md:w-1/2 bg-slate-900 flex flex-col justify-between relative overflow-hidden">
+                    <!-- Decorative background circle -->
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-brand-500/10 rounded-full blur-2xl"></div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Get in Touch</h3>
+                        <p class="text-slate-400 mb-8">Have questions about our specs or need a custom configuration? Reach out to our engineering team directly.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center text-slate-300">
+                                <i class="fa-solid fa-envelope text-brand-400 w-6"></i>
+                                <span>support@atrixnodes.com</span>
+                            </div>
+                            <div class="flex items-center text-slate-300">
+                                <i class="fa-brands fa-discord text-brand-400 w-6"></i>
+                                <span>Join our Discord Community</span>
+                            </div>
+                            <div class="flex items-center text-slate-300">
+                                <i class="fa-brands fa-whatsapp text-brand-400 w-6"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <p class="text-xs text-slate-500">Response time: Usually within 24 hours on business days.</p>
+                    </div>
+                </div>
+
+                <div class="p-10 md:w-1/2 bg-brand-900">
+                    <form onsubmit="event.preventDefault(); alert('Thank you for your message. This is a demo form.');">
+                        <div class="mb-6">
+                            <label for="name" class="block text-sm font-medium text-slate-400 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-brand-500 transition-colors" placeholder="John Doe" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="block text-sm font-medium text-slate-400 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-brand-500 transition-colors" placeholder="john@example.com" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-sm font-medium text-slate-400 mb-2">Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-brand-500 transition-colors" placeholder="I'm interested in..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 rounded-lg bg-brand-600 text-white font-bold hover:bg-brand-500 transition-all">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-950 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <span class="font-bold text-xl text-white">Atrix<span class="text-brand-400">Nodes</span></span>
+                <p class="text-slate-500 text-sm mt-1">© 2023 Atrix Nodes. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fa-brands fa-discord"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>
