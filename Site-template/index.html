@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AtrixNodes | Reliable Infrastructure & Hosting</title>
+    <meta name="description" content="High-performance VPS hosting and infrastructure services. Transparent pricing, NVMe storage, and KVM virtualization.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script src="tailwind-config.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="w-full transition-all duration-300 bg-transparent nav-dynamic">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center relative">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="assets/Logo &amp; Fav Icon/logo.png" alt="AtrixNodes" class="h-8 w-auto object-contain" />
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <div class="absolute left-1/2 -translate-x-1/2 flex items-center bg-slate-800/60 border border-slate-700 rounded-full px-2 py-1 shadow-md">
+                        <a href="index.html" class="px-4 py-2 rounded-full text-sm font-medium text-white hover:bg-slate-700/70 transition-colors">Home</a>
+                        <div class="relative group" id="nav-services">
+                            <button id="services-toggle" class="px-4 py-2 rounded-full text-sm font-medium text-white hover:bg-slate-700/70 transition-colors flex items-center">
+                                Services
+                                <i class="fa-solid fa-chevron-down ml-2 text-xs"></i>
+                            </button>
+                            <div id="services-menu" class="absolute left-0 mt-2 w-56 bg-brand-900 border border-slate-800 rounded-xl shadow-xl z-50 transition-all duration-200 ease-out opacity-0 translate-y-2 scale-95 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto">
+                                <a href="minecraft.html" class="flex items-center px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white"><i class="fa-solid fa-cube mr-3"></i> Minecraft Hosting</a>
+                                <a href="discord.html" class="flex items-center px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white"><i class="fa-brands fa-discord mr-3"></i> Discord Hosting</a>
+                                <a href="vps.html" class="flex items-center px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white"><i class="fa-solid fa-server mr-3"></i> VPS</a>
+                            </div>
+                        </div>
+                        <div class="relative ml-1 group" id="nav-more">
+                            <button id="more-toggle" class="px-4 py-2 rounded-full text-sm font-medium text-white hover:bg-slate-700/70 transition-colors flex items-center">
+                                More
+                                <i class="fa-solid fa-chevron-down ml-2 text-xs"></i>
+                            </button>
+                            <div id="more-menu" class="absolute left-0 mt-2 w-56 bg-brand-900 border border-slate-800 rounded-xl shadow-xl p-2 z-50 transition-all duration-200 ease-out opacity-0 translate-y-2 scale-95 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 group-hover:pointer-events-auto">
+                                <a href="about.html" class="flex items-center px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white"><i class="fa-solid fa-circle-info mr-3"></i> About Us</a>
+                                <a href="support.html" class="flex items-center px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white"><i class="fa-solid fa-life-ring mr-3"></i> Support</a>
+                                <a href="#" class="flex items-center px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white"><i class="fa-solid fa-file-lines mr-3"></i> TOS</a>
+                                <a href="#" class="flex items-center px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white"><i class="fa-solid fa-shield-halved mr-3"></i> Privacy Policy</a>
+                                <a href="#" class="flex items-center px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white"><i class="fa-solid fa-chart-line mr-3"></i> Status Page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center ml-auto">
+                    <a href="https://paid.atrixnodes.site/" target="_blank" rel="noopener" class="px-4 py-2 rounded-lg bg-brand-500 text-white font-semibold hover:bg-brand-400 transition-colors shadow-md">Client Panel</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-900 border-b border-slate-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Home</a>
+                <div class="block">
+                    <button id="mobile-services-toggle" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 flex justify-between items-center">
+                        Services
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="mobile-services-menu" class="hidden ml-3 mt-1 space-y-1">
+                        <a href="minecraft.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Minecraft Hosting</a>
+                        <a href="discord.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Discord Hosting</a>
+                        <a href="vps.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">VPS</a>
+                    </div>
+                </div>
+                <div class="block">
+                    <button id="mobile-more-toggle" class="w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 flex justify-between items-center">
+                        More
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="mobile-more-menu" class="hidden ml-3 mt-1 space-y-1">
+                        <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">About Us</a>
+                        <a href="support.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Support</a>
+                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">TOS</a>
+                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Privacy Policy</a>
+                        <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800">Status Page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero-section" class="relative pt-16 pb-20 lg:pt-20 lg:pb-28 hero-gif overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <p class="text-brand-400 text-sm font-semibold tracking-wider mb-3">AtrixNodes</p>
+                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-white mb-4 leading-tight">
+                        Host your own
+                        <span id="rotating-text" class="highlight-text block fade-in">Discord Bot</span>
+                    </h1>
+                    <p class="mt-4 text-xl text-slate-400 max-w-2xl">
+                        High-performance hosting for Minecraft servers, VPS, and Discord bots — engineered for stability, low latency, and real workloads.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <a href="#pricing" class="px-8 py-3 rounded-lg bg-brand-500 text-white font-medium hover:bg-brand-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)]">Get Started</a>
+                        <a href="#features" class="px-8 py-3 rounded-lg border border-slate-700 text-slate-300 font-medium hover:border-slate-500 hover:text-white transition-all">Explore Features</a>
+                    </div>
+                    <p class="mt-6 text-slate-400 text-sm">Minecraft-first infrastructure • India-optimized routing • Transparent pricing</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="hero-card bg-brand-900/50 backdrop-blur-md border border-slate-700 rounded-2xl p-6 shadow-xl">
+                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mb-4 border border-slate-700">
+                            <i class="fa-solid fa-rocket text-brand-400"></i>
+                        </div>
+                        <h3 class="text-white font-semibold">Instant Deployment</h3>
+                        <p class="text-slate-400 text-sm mt-2">Servers come online in under 60 seconds.</p>
+                    </div>
+                    <div class="hero-card bg-brand-900/50 backdrop-blur-md border border-slate-700 rounded-2xl p-6 shadow-xl">
+                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mb-4 border border-slate-700">
+                            <i class="fa-solid fa-shield text-brand-400"></i>
+                        </div>
+                        <h3 class="text-white font-semibold">Built-in DDoS Protection</h3>
+                        <p class="text-slate-400 text-sm mt-2">Always-on protection at the network edge.</p>
+                    </div>
+                    <div class="hero-card bg-brand-900/50 backdrop-blur-md border border-slate-700 rounded-2xl p-6 shadow-xl sm:col-span-2">
+                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mb-4 border border-slate-700">
+                            <i class="fa-solid fa-headset text-brand-400"></i>
+                        </div>
+                        <h3 class="text-white font-semibold">Real 24/7 Support</h3>
+                        <p class="text-slate-400 text-sm mt-2">Talk to real humans, not auto-bots.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20 pointer-events-none">
+            <div style="background-image: linear-gradient(#1e293b 1px, transparent 1px), linear-gradient(90deg, #1e293b 1px, transparent 1px); background-size: 40px 40px;"></div>
+        </div>
+    </section>
+
+    <!-- Advanced Features -->
+    <section id="features" class="relative py-20 features-gif overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="mb-10">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-semibold">
+                    <i class="fa-solid fa-gauge-high mr-2 text-brand-400"></i> Built for Performance
+                </span>
+                <h2 class="mt-4 text-4xl md:text-5xl font-bold text-white">
+                    Advanced <span class="highlight-text">Features</span>
+                </h2>
+                <p class="mt-4 text-slate-300 max-w-3xl">
+                    Everything you need for professional Minecraft, Discord bot, and VPS hosting — optimized for speed, stability, and control.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="feature-item">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-white text-lg font-semibold">High Performance</h3>
+                        <span class="feature-icon"><i class="fa-solid fa-microchip text-brand-400"></i></span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Modern Intel and AMD CPUs tuned for maximum Minecraft and VPS performance.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-white text-lg font-semibold">Low Latency</h3>
+                        <span class="feature-icon"><i class="fa-solid fa-bolt text-brand-400"></i></span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Premium peering and optimized routing ensure minimal lag and fast responses.</p>
+                </div>
+                <div class="feature-item lg:col-span-2">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-white text-lg font-semibold">Advanced Security</h3>
+                        <span class="feature-icon"><i class="fa-solid fa-shield-halved text-brand-400"></i></span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Multi-layer DDoS protection, firewalling, and threat detection keep servers online 24/7.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-white text-lg font-semibold">Auto Recovery</h3>
+                        <span class="feature-icon"><i class="fa-solid fa-heart text-brand-400"></i></span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Automatic crash recovery and scheduled backups protect data and uptime.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-white text-lg font-semibold">Full Control</h3>
+                        <span class="feature-icon"><i class="fa-solid fa-gear text-brand-400"></i></span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Panel with file manager, console, version changer, and advanced controls.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-white text-lg font-semibold">Resource Scaling</h3>
+                        <span class="feature-icon"><i class="fa-solid fa-chart-line text-brand-400"></i></span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Upgrade or downgrade RAM and CPU instantly as your server grows.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-white text-lg font-semibold">Global Network</h3>
+                        <span class="feature-icon"><i class="fa-solid fa-globe text-brand-400"></i></span>
+                    </div>
+                    <p class="text-slate-400 text-sm">Strategic nodes in India, Singapore, and Europe for best connectivity.</p>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-0 pointer-events-none opacity-40 backdrop-blur-md"></div>
+    </section>
+
+    <!-- Server Locations -->
+    <section id="locations" class="relative py-20 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-10">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-semibold">
+                    <i class="fa-solid fa-globe mr-2 text-brand-400"></i> Global Infrastructure
+                </span>
+                <h2 class="mt-4 text-4xl md:text-5xl font-bold text-white">
+                    Server <span class="highlight-text">Locations</span>
+                </h2>
+                <p class="mt-4 text-slate-300 max-w-3xl mx-auto">
+                    High-performance nodes deployed in strategic regions to ensure ultra-low latency, stability, and maximum uptime.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10 max-w-5xl mx-auto">
+                <div class="feature-item location-card">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-start space-x-4">
+                            <div class="location-flag">
+                                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/in.svg" alt="India" class="h-6 w-8 object-cover rounded">
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-3">
+                                    <h3 class="text-white text-lg font-semibold">India <span class="text-slate-400">(Mumbai)</span></h3>
+                                    <span class="status-pill status-available">Available</span>
+                                </div>
+                                <p class="text-slate-400 text-xs mt-2">AMD EPYC™ 9354</p>
+                                <p class="text-slate-500 text-xs">Low latency across India</p>
+                            </div>
+                        </div>
+                        <span class="feature-icon"><i class="fa-solid fa-server text-brand-400"></i></span>
+                    </div>
+                </div>
+                <div class="feature-item location-card">
+                    <div class="flex items-start justify-between">
+                        <div class="flex items-start space-x-4">
+                            <div class="location-flag">
+                                <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/flags/4x3/sg.svg" alt="Singapore" class="h-6 w-8 object-cover rounded">
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-3">
+                                    <h3 class="text-white text-lg font-semibold">Singapore <span class="text-slate-400">(Singapore)</span></h3>
+                                    <span class="status-pill status-limited">Limited</span>
+                                </div>
+                                <p class="text-slate-400 text-xs mt-2">AMD Ryzen™ 9 7900</p>
+                                <p class="text-slate-500 text-xs">Low latency across SEA</p>
+                            </div>
+                        </div>
+                        <span class="feature-icon"><i class="fa-solid fa-server text-brand-400"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="locations-map relative max-w-5xl mx-auto">
+                <img src="assets/SVGs/map.svg" alt="World map" class="w-full opacity-60">
+                <span class="map-dot" style="top: 48%; left: 70%" title="India"></span>
+                <span class="map-dot" style="top: 60%; left: 78%" title="Singapore"></span>
+            </div>
+        </div>
+        <div class="absolute inset-0 pointer-events-none opacity-30 backdrop-blur-sm"></div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-brand-950 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-10 flex items-start justify-between">
+                <div>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-semibold">Transparent Pricing</span>
+                    <h2 class="mt-3 text-4xl md:text-5xl font-bold text-white">Simple <span class="highlight-text">Pricing</span></h2>
+                    <p class="mt-3 text-slate-400 max-w-2xl">Fair, transparent pricing with no hidden fees. Pay only for what you actually use.</p>
+                </div>
+                <div id="currency-container" class="relative">
+                    <button id="currency-toggle" class="px-4 py-2 rounded-xl bg-slate-900 text-white border border-slate-700 shadow-md flex items-center">
+                        <span class="mr-2">₹ INR · Indian Rupee</span>
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </button>
+                    <div id="currency-menu" class="absolute right-0 mt-2 w-56 bg-brand-900 border border-slate-800 rounded-xl shadow-xl p-2 z-50 hidden">
+                        <button data-currency="INR" class="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">₹ INR · Indian Rupee</button>
+                        <button data-currency="USD" class="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">$ USD · US Dollar</button>
+                        <button data-currency="EUR" class="w-full text-left px-3 py-2 rounded-lg text-slate-300 hover:bg-slate-800 hover:text-white">€ EUR · Euro</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 justify-items-center gap-8 max-w-7xl mx-auto">
+                <div class="pricing-card2">
+                    <div class="pricing-top bg-discord"></div>
+                    <div class="pricing-body">
+                        <h3 class="text-white text-lg font-semibold">Bot Hosting</h3>
+                        <p class="text-slate-400 text-xs mt-1">Starting from</p>
+                        <div class="mt-2 flex items-baseline">
+                            <span class="pricing-price text-white price-currency">₹</span>
+                            <span class="pricing-price text-white price-value" data-target="100">0</span>
+                            <span class="ml-2 text-slate-500">/month</span>
+                        </div>
+                        <ul class="space-y-3 mt-5 mb-6">
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> High performance nodes</li>
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Low latency networking</li>
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Managed services</li>
+                        </ul>
+                        <a href="discord.html" class="pricing-cta bg-slate-700 text-white hover:bg-slate-600">Get Started</a>
+                    </div>
+                </div>
+                <div class="pricing-card2">
+                    <div class="pricing-top bg-minecraft"></div>
+                    <div class="pricing-body">
+                        <h3 class="text-white text-lg font-semibold">Minecraft Hosting</h3>
+                        <p class="text-slate-400 text-xs mt-1">Starting from</p>
+                        <div class="mt-2 flex items-baseline">
+                            <span class="pricing-price text-white price-currency">₹</span>
+                            <span class="pricing-price text-white price-value" data-target="40">0</span>
+                            <span class="ml-2 text-slate-500">/month</span>
+                        </div>
+                        <ul class="space-y-3 mt-5 mb-6">
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Instant deployment</li>
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> DDoS protection</li>
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Full control panel</li>
+                        </ul>
+                        <a href="minecraft.html" class="pricing-cta bg-brand-500 text-white hover:bg-brand-400">View Plans</a>
+                    </div>
+                </div>
+                <div class="pricing-card2">
+                    <div class="pricing-top bg-vps"></div>
+                    <div class="pricing-body">
+                        <h3 class="text-white text-lg font-semibold">VPS Hosting</h3>
+                        <p class="text-slate-400 text-xs mt-1">Starting from</p>
+                        <div class="mt-2 flex items-baseline">
+                            <span class="pricing-price text-white price-currency">₹</span>
+                            <span class="pricing-price text-white price-value" data-target="350">0</span>
+                            <span class="ml-2 text-slate-500">/month</span>
+                        </div>
+                        <ul class="space-y-3 mt-5 mb-6">
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Full root access</li>
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> NVMe SSD storage</li>
+                            <li class="flex items-center text-slate-300 text-sm"><i class="fa-solid fa-check text-brand-400 mr-3"></i> Automated backups</li>
+                        </ul>
+                        <a href="vps.html" class="pricing-cta bg-slate-700 text-white hover:bg-slate-600">Deploy VPS</a>
+                    </div>
+                </div>
+                
+            </div>
+            <p class="text-center mt-8 text-sm text-slate-500">Need custom infrastructure? <a href="#contact" class="text-brand-400 hover:underline">Contact us for custom nodes.</a></p>
+        </div>
+    </section>
+
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-brand-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="faq-image">
+                    <img src="assets/IMG/question.png" alt="FAQ Illustration" class="w-1/2 h-auto object-contain mx-auto">
+                </div>
+                <div>
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-semibold">
+                        <i class="fa-solid fa-circle-question mr-2 text-brand-400"></i> Support Center
+                    </span>
+                    <h2 class="mt-4 text-4xl md:text-5xl font-bold text-white">
+                        Frequently Asked <span class="highlight-text">Questions</span>
+                    </h2>
+                    <p class="mt-4 text-slate-300">
+                        Answers to common questions about AtrixNodes, billing, setup, and server management.
+                    </p>
+                    <div class="faq-accordion mt-8 space-y-4">
+                        <div class="faq-item border border-slate-700 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full px-6 py-4 text-left bg-brand-950 text-white flex justify-between items-center">
+                                <span class="flex items-center"><span class="text-slate-400 mr-3">01</span>How do I get started with AtrixNodes?</span>
+                                <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                            </button>
+                            <div class="faq-content px-6 py-4 bg-slate-800/30 text-slate-300 hidden">
+                                Create an account, choose a plan, and deploy from the panel. Setup finishes in under a minute.
+                            </div>
+                        </div>
+                        <div class="faq-item border border-slate-700 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full px-6 py-4 text-left bg-brand-950 text-white flex justify-between items-center">
+                                <span class="flex items-center"><span class="text-slate-400 mr-3">02</span>What kind of support does AtrixNodes provide?</span>
+                                <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                            </button>
+                            <div class="faq-content px-6 py-4 bg-slate-800/30 text-slate-300 hidden">
+                                24/7 support via ticket and Discord. Engineers respond quickly with real solutions.
+                            </div>
+                        </div>
+                        <div class="faq-item border border-slate-700 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full px-6 py-4 text-left bg-brand-950 text-white flex justify-between items-center">
+                                <span class="flex items-center"><span class="text-slate-400 mr-3">03</span>Can I customize my server settings and install mods or plugins?</span>
+                                <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                            </button>
+                            <div class="faq-content px-6 py-4 bg-slate-800/30 text-slate-300 hidden">
+                                Yes. Use the control panel to change versions, upload files, and manage plugins or mods.
+                            </div>
+                        </div>
+                        <div class="faq-item border border-slate-700 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full px-6 py-4 text-left bg-brand-950 text-white flex justify-between items-center">
+                                <span class="flex items-center"><span class="text-slate-400 mr-3">04</span>What payment methods are accepted?</span>
+                                <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                            </button>
+                            <div class="faq-content px-6 py-4 bg-slate-800/30 text-slate-300 hidden">
+                                UPI, cards, and international methods depending on currency selection.
+                            </div>
+                        </div>
+                        <div class="faq-item border border-slate-700 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full px-6 py-4 text-left bg-brand-950 text-white flex justify-between items-center">
+                                <span class="flex items-center"><span class="text-slate-400 mr-3">05</span>Do your servers include DDoS protection?</span>
+                                <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                            </button>
+                            <div class="faq-content px-6 py-4 bg-slate-800/30 text-slate-300 hidden">
+                                Always-on protection is included. Traffic is filtered at the edge to keep services online.
+                            </div>
+                        </div>
+                        <div class="faq-item border border-slate-700 rounded-lg overflow-hidden">
+                            <button class="faq-toggle w-full px-6 py-4 text-left bg-brand-950 text-white flex justify-between items-center">
+                                <span class="flex items-center"><span class="text-slate-400 mr-3">06</span>Can I upgrade or downgrade resources later?</span>
+                                <i class="fa-solid fa-chevron-right text-slate-400"></i>
+                            </button>
+                            <div class="faq-content px-6 py-4 bg-slate-800/30 text-slate-300 hidden">
+                                Yes. Plans can be changed instantly with zero downtime from the panel.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Experience -->
+    <section id="platform" class="py-20 platform-section border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-semibold">
+                    <i class="fa-solid fa-desktop mr-2 text-brand-400"></i> AtrixNodes Panel
+                </span>
+                <h2 class="mt-4 text-4xl md:text-5xl font-bold text-white">
+                    Experience Our <span class="highlight-text">Platform</span>
+                </h2>
+                <p class="mt-4 text-slate-300 max-w-3xl mx-auto">
+                    A fast, clean and powerful control panel designed for Minecraft hosting — built to make server management effortless.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-5">
+                    <div class="platform-card">
+                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mr-4 border border-slate-700">
+                            <i class="fa-solid fa-gauge-high text-brand-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold">Main Dashboard</h3>
+                            <p class="text-slate-400 text-sm mt-1">Monitor server status, player count, uptime, and resource usage from one clean dashboard.</p>
+                        </div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mr-4 border border-slate-700">
+                            <i class="fa-solid fa-server text-brand-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold">Server Dashboard</h3>
+                            <p class="text-slate-400 text-sm mt-1">Full control: world selection, RAM allocation, startup flags, and live console access.</p>
+                        </div>
+                    </div>
+                    <div class="platform-card active">
+                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mr-4 border border-slate-700">
+                            <i class="fa-solid fa-puzzle-piece text-brand-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold">One-Click Plugin Installer</h3>
+                            <p class="text-slate-400 text-sm mt-1">Install EssentialsX, LuckPerms, WorldEdit and more instantly. No uploads. No manual configs.</p>
+                        </div>
+                    </div>
+                    <div class="platform-card">
+                        <div class="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center mr-4 border border-slate-700">
+                            <i class="fa-solid fa-rotate-right text-brand-400"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold">Version Changer</h3>
+                            <p class="text-slate-400 text-sm mt-1">Switch between Paper, Fabric, Forge, and multiple versions in just a few clicks.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="platform-image">
+                    <div class="relative rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
+                        <img src="assets/BG/minecraft.jpg" alt="Panel Preview" class="w-full h-auto object-cover">
+                        <div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(0deg, rgba(2,6,23,0.55), rgba(2,6,23,0));"></div>
+                        <div class="absolute bottom-4 left-4 right-4 bg-slate-900/60 backdrop-blur-md border border-slate-700 rounded-xl px-4 py-3 text-slate-300 text-sm">
+                            One-Click Plugin Installer — install popular plugins instantly with no manual configuration.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 discord-cta-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="discord-cta-card rounded-2xl border border-slate-800 overflow-hidden shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 items-center">
+                    <div class="p-8 md:col-span-2">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-slate-800/60 border border-slate-700 text-slate-300 text-xs font-semibold">
+                            <i class="fa-brands fa-discord mr-2 text-brand-400"></i> Community
+                        </div>
+                        <h3 class="mt-4 text-3xl md:text-4xl font-bold text-white">Join the AtrixNodes Discord</h3>
+                        <p class="mt-3 text-slate-300">Connect with our growing community of players, developers, and creators. Get real-time support, service updates, and exclusive offers directly from the AtrixNodes team.</p>
+                        <ul class="mt-6 space-y-2 text-slate-300 text-sm">
+                            <li class="flex items-center"><span class="w-2 h-2 rounded-full bg-brand-400 mr-3"></span>Instant support from real humans</li>
+                            <li class="flex items-center"><span class="w-2 h-2 rounded-full bg-brand-400 mr-3"></span>Service announcements & node updates</li>
+                            <li class="flex items-center"><span class="w-2 h-2 rounded-full bg-brand-400 mr-3"></span>Giveaways, discounts & early access</li>
+                        </ul>
+                        <p class="mt-6 text-xs text-slate-500">Takes less than 10 seconds · No spam · Leave anytime</p>
+                    </div>
+                    <div class="p-8 md:col-span-1 flex md:justify-end items-center">
+                        <a href="https://discord.gg/NmV9Qev233" target="_blank" rel="noopener" class="discord-btn px-6 py-3 rounded-xl text-white font-semibold">Join Our Discord</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-section border-t border-slate-800 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center space-x-3">
+                        <img src="assets/Logo & Fav Icon/logo.png" alt="AtrixNodes" class="h-8 w-auto object-contain" />
+                        <!-- <span class="font-bold text-xl text-white">Atrix<span class="text-brand-400">Nodes</span></span> -->
+                    </div>
+                    <p class="mt-4 text-slate-300 text-sm">Premium hosting for Minecraft servers, Discord bots, and VPS — built for performance, stability, and serious creators.</p>
+                    <div class="mt-6 flex space-x-3">
+                        <a href="https://discord.gg/NmV9Qev233" target="_blank" rel="noopener" class="footer-icon"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" class="footer-icon"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="footer-icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" class="footer-icon"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Products</h4>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li><a href="discord.html" class="footer-link">Bot Hosting</a></li>
+                        <li><a href="minecraft.html" class="footer-link">Minecraft Hosting</a></li>
+                        <li><a href="vps.html" class="footer-link">VPS Hosting</a></li>
+                        <li><a href="https://paid.atrixnodes.site/" target="_blank" rel="noopener" class="footer-link">Game Panel</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Company</h4>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li><a href="#platform" class="footer-link">About Us</a></li>
+                        <li><a href="#contact" class="footer-link">Support</a></li>
+                        <li><a href="#" class="footer-link">Status Page</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Legal</h4>
+                    <ul class="space-y-2 text-slate-300 text-sm">
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                        <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-10 border-t border-slate-800 pt-6 text-slate-500 text-sm">
+                © 2026 AtrixNodes. All rights reserved. • Made with 💖 by <a href="https://discord.gg/zbVE4SmVA9" target="_blank" rel="noopener" class="text-brand-400 hover:underline">Codion</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>
